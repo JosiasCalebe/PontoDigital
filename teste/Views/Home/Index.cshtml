@@ -1,0 +1,173 @@
+﻿@{
+    Html.RenderPartial("_HeaderNavBar");
+    Html.RenderPartial("_LogonLogin");
+}
+    <a id="button"></a>
+    <section class="hero">
+        <div id="banner_text">
+            <img src="img/logoText.png" alt="Ponto Digital">
+            <p>Faça o teste grátis por 30 dias e veja como o Ponto Digital vai facilitar a sua vida!</p>
+
+            <a href="#signup" data-toggle="modal" data-target=".log-sign">Comece de graça!</a>
+        </div>
+        <img id="banner_phone" src="img/phone.png" alt=phone>
+        <div id="triangulo"></div>
+    </section>
+
+    <section class="oqe">
+        <div class="titulo">
+            <h2>O que é?</h2>
+            <hr>
+        </div>
+        <div id="oqe_texto">
+            <p>O Ponto Digital é um sistema de controle de ponto eletrônico que registra e contabiliza a jornada de
+                trabalho dos funcionários via web pelo PC ou pelo aplicativo grátis para Android e iOS.
+                <br><br> Coletamos informações sobre presença, frequência e pontualidade para entregar métricas de
+                Business Intelligence que auxiliam o gerente de RH em questões 100% estratégicas.
+            </p>
+            <a href="">Conheça os nossos planos!</a>
+        </div>
+    </section>
+    <section class="funcionalidades">
+        <div class="titulo">
+            <h2>Funcionalidades</h2>
+            <hr>
+        </div>
+        <div class="func_phone">
+            <div class="lista" id="li-left">
+                <ul class="lista_func">
+                    <li class="list_item">
+                        <span class="li-check">
+                            <i class="fusion-li-icon fa-check fas" style="color:#FF9F00;" ::before></i>
+                        </span>
+                        Registro de ponto online e offline
+                    </li>
+                    <li class="list_item"><span class="li-check">
+                            <i class="fusion-li-icon fa-check fas" style="color:#FF9F00;" ::before></i></span>
+                        Localização em tempo real
+                    </li>
+                    <li class="list_item"><span class="li-check">
+                            <i class="fusion-li-icon fa-check fas" style="color:#FF9F00;" ::before></i></span>
+                        Acesso aos registros de ponto
+                    </li>
+                    <li class="list_item"><span class="li-check">
+                            <i class="fusion-li-icon fa-check fas" style="color:#FF9F00;" ::before></i></span>
+                        Lançamento de ajustes no ponto
+                    </li>
+                </ul>
+            </div>
+            <img src="img/phone.png" alt="phone">
+            <div class="lista" id="li-right">
+                <ul class="lista_func">
+                    <li class="list_item"><span class="li-check">
+                            <i class="fusion-li-icon fa-check fas" style="color:#FF9F00;" ::before></i></span>
+                        Lançamento de atestado
+                    </li>
+                    <li class="list_item"><span class="li-check">
+                            <i class="fusion-li-icon fa-check fas" style="color:#FF9F00;" ::before></i></span>
+                        Ponto via QR Code
+                    </li>
+                    <li class="list_item"><span class="li-check">
+                            <i class="fusion-li-icon fa-check fas" style="color:#FF9F00;" ::before></i></span>
+                        Comprovante de ponto por email
+                    </li>
+                    <li class="list_item"><span class="li-check">
+                            <i class="fusion-li-icon fa-check fas" style="color:#FF9F00;" ::before></i></span>
+                        Recursos antifraude
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="pricing-section bg-10 planos" id="planos">
+        <div class="titulo">
+            <h2>Planos</h2>
+            <hr>
+        </div>
+        <div class="pricing pricing--rabten">
+            <div class="pricing__item">
+                <div class="icon icon--home"><i class="fas fa-user"></i></div>
+                <h3 class="pricing__title">Trial gratuito</h3>
+                <p class="pricing__sentence">Licença Individual</p>
+                <div class="pricing__price">
+                    <span class="pricing__anim pricing__anim--1">
+                        30
+                    </span>
+                    <span class="pricing__anim pricing__anim--2">
+                        <span class="pricing__period">dias</span>
+                    </span>
+                </div>
+                <ul class="pricing__feature-list">
+                    <li class="pricing__feature">1 GB de espaço</li>
+                    <li class="pricing__feature">Suporte por R$25/hora</li>
+                    <li class="pricing__feature">Pacote de mídia social pequeno</li>
+                </ul>
+                <button class="pricing__action" href="#signup" data-toggle="modal" data-target=".log-sign">Assinar</button>
+            </div>
+            <div class="pricing__item">
+                <div class="icon icon--store"><i class="fas fa-home"></i></div>
+                <h3 class="pricing__title">Casual</h3>
+                <p class="pricing__sentence">Até 5 usuários</p>
+                <div class="pricing__price">
+                    <span class="pricing__anim pricing__anim--1">
+                        <span class="pricing__currency">R$</span>49
+                    </span>
+                    <span class="pricing__anim pricing__anim--2">
+                        <span class="pricing__period">por mês</span>
+                    </span>
+                </div>
+                <ul class="pricing__feature-list">
+                    <li class="pricing__feature">5 GB de espaço</li>
+                    <li class="pricing__feature">Suporte gratuito</li>
+                    <li class="pricing__feature">Pacote de mídia social completo</li>
+                </ul>
+                <button class="pricing__action" href="#signup" data-toggle="modal" data-target=".log-sign">Assinar</button>
+            </div>
+            <div class="pricing__item">
+                <div class="icon icon--store"><i class="fas fa-store"></i></div>
+                <h3 class="pricing__title">Pequeno time</h3>
+                <p class="pricing__sentence">até 10 usuários</p>
+                <div class="pricing__price">
+                    <span class="pricing__anim pricing__anim--1">
+                        <span class="pricing__currency">R$</span>149
+                    </span>
+                    <span class="pricing__anim pricing__anim--2">
+                        <span class="pricing__period">por mês</span>
+                    </span>
+                </div>
+                <ul class="pricing__feature-list">
+                    <li class="pricing__feature">5 GB de espaço</li>
+                    <li class="pricing__feature">Suporte gratuito</li>
+                    <li class="pricing__feature">Pacote de mídia social completo</li>
+                </ul>
+                <button class="pricing__action" href="#signup" data-toggle="modal" data-target=".log-sign">Assinar</button>
+            </div>
+            <div class="pricing__item">
+                <div class="icon icon--apartment"><i class="fas fa-building"></i></div>
+                <h3 class="pricing__title">Organização</h3>
+                <p class="pricing__sentence">A Definir</p>
+                <div class="pricing__price">
+                    <span class="pricing__anim pricing__anim--1">
+                        <span class="pricing__currency">R$</span>499
+                    </span>
+                    <span class="pricing__anim pricing__anim--2">
+                        <span class="pricing__period">por mês</span>
+                    </span>
+                </div>
+                <ul class="pricing__feature-list">
+                    <li class="pricing__feature">Espaço ilimitado</li>
+                    <li class="pricing__feature">Suporte gratuito</li>
+                    <li class="pricing__feature">Pacote de mídia social completo</li>
+                </ul>
+                <button class="pricing__action" href="#signup" data-toggle="modal" data-target=".log-sign">Assinar</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+

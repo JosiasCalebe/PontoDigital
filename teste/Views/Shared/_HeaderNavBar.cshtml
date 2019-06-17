@@ -1,0 +1,21 @@
+@{
+    var nome = (string) ViewData["LoggedNome"];
+    var email = (string) ViewData["LoggedEmail"];
+    var senha = (string) ViewData["LoggedSenha"];
+    var admin = (string) ViewData["UserAdmin"];
+}
+<header class="bg-dark">
+        <a href="Home"><img src="img/logoNoText.png" alt="Ponto Digital"></a>
+        <nav>
+            <li><a href="Depoimentos">Depoimentos</a></li>
+            <li><a href="Home">Contato</a></li>
+            <li><a href="Home#planos">Planos</a></li>
+            <li><a href="Home">FAQ</a></li>
+            @if(string.IsNullOrEmpty(email) && string.IsNullOrEmpty(senha)){
+            <li><a href="#signup" data-toggle="modal" data-target=".log-sign">Login/Cadastro</a></li>
+            }else{
+                <li><a href="Home/Logoff">Logoff</a></li>
+                <li><a href="Admin">@{@nome}</a></li>
+            }
+        </nav>
+    </header>

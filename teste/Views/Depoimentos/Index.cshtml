@@ -1,0 +1,106 @@
+@model teste.ViewModels.ViewModel
+@{
+    var nome = (string) ViewData["LoggedNome"];
+    var email = (string) ViewData["LoggedEmail"];
+    var senha = (string) ViewData["LoggedSenha"];
+    var admin = (string) ViewData["UserAdmin"];
+    Html.RenderPartial("_HeaderNavBar");
+    Html.RenderPartial("_LogonLogin");
+}
+
+<main>
+  <section class="desnecessaria">
+    <h1>Depoimentos</h1>
+  </section>
+  @if(!string.IsNullOrEmpty(email)){
+  <div class="form-depoimentos">
+    <form action="/Depoimentos/Cadastrar" method="POST">
+
+
+      <div class="group">
+        <input name="profissao" required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
+        <label class="label" for="date">Profissão:</label></div>
+      <div class="group">
+        <textarea maxlength="200" name="mensagem" required="" class="input" id="area-de-texto"></textarea><span class="highlight"></span><span class="bar"></span>
+        <label class="label" for="date">Mensagem:</label></div>
+
+      <div class="control-group">
+        <label class="control-label" for="signin"></label>
+        <div class="controls">
+          <button  id="signin" name="signin" class="btn btn-primary btn-block">Enviar</button>
+        </div>
+    </form>
+  </div>
+  }
+
+
+
+  <section class="text-center my-5 hiv">
+    <!-- Grid row -->
+    <div class="row">
+
+
+
+
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        @if(admin == "True"){
+        @foreach(var item in Model.Depoimentos){
+        @if(item.Aprovado != "Excluido"){
+        <div class="carousel-item active">
+
+          <!--Grid column-->
+          <div class="col-md-4">
+            <div class="testimonial">
+              <!--Content-->
+              <h4 class="font-weight-bold mt-4">@item.Nome</h4>
+              <h6 class="blue-text font-weight-bold my-3">@item.Profissao</h6>
+              <p class="font-weight-normal">@item.Texto</p>
+              <h6 class="blue-text font-weight-bold my-3">@item.Data.ToShortDateString()</h6>
+              <form method="POST">
+                <input type="hidden" name="item-id" value="@item.Id">
+                @if(item.Aprovado == "False"){
+                <button formaction="Depoimentos/Aprovar" name="aprovar" type="submit" class="btn btn-primary">Aprovar</button>
+                }
+                  <button formaction="Depoimentos/Excluir" name="excluir" type="submit" class="btn btn-primary">Excluir</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        }
+        }
+        }else{
+        @foreach(var item in Model.Depoimentos){
+        @if(item.Aprovado == "True"){
+        <div class="carousel-item active">
+
+          <!--Grid column-->
+          <div class="col-md-4">
+            <div class="testimonial">
+              <!--Content-->
+              <h4 class="font-weight-bold mt-4">@item.Nome</h4>
+              <h6 class="blue-text font-weight-bold my-3">@item.Profissao</h6>
+              <p class="font-weight-normal">@item.Texto</p>
+              <h6 class="blue-text font-weight-bold my-3">@item.Data.ToShortDateString()</h6>
+            </div>
+          </div>
+          <!--Grid column-->
+        </div>
+        }
+        }
+        }
+
+
+
+      </div>
+      <!--Slides-->
+
+    </div>
+    <!--Carousel Wrapper-->
+
+    </div>
+    <!-- Grid row -->
+
+  </section>
+
+</main>

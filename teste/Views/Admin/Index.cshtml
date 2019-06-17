@@ -1,0 +1,79 @@
+@model teste.ViewModels.ViewModel
+@{
+    var nome = (string) ViewData["LoggedNome"];
+    var email = (string) ViewData["LoggedEmail"];
+    var senha = (string) ViewData["LoggedSenha"];
+    var admin = (string) ViewData["UserAdmin"];
+    Html.RenderPartial("_HeaderNavBar");
+    Html.RenderPartial("_LogonLogin");
+}
+
+
+<main>
+    <section class="desnecessaria">
+        <h1>Admin Dashboard</h1>
+    </section>
+    <!--
+●	Lista de últimos depoimentos
+●	Lista de últimos usuários cadastrados
+●	Quantidade de usuários cadastrados
+●	Quantidade de depoimentos
+●	Quantidade de depoimentos aprovados
+●	Quantidade de depoimentos reprovados
+-->
+
+
+@if(admin == "True"){
+    <section class="text-center my-5 hiv">
+        <h2 class="titulo2">Depoimentos: @ViewBag.Depoimentos</h2>
+        <h3 class="titulo3">Aprovados: @ViewBag.DepoimentosAprovados Pendentes: @ViewBag.DepoimentosPendentes Excluidos: @ViewBag.DepoimentosExcluidos</h3>
+        <div class="row">
+            <div class="carousel-inner" role="listbox">
+                @foreach (var item in @Model.Depoimentos)
+                {
+                    <div class="carousel-item active">
+                        <div class="col-md-4">
+                            <div class="testimonial">
+                                <h4 class="font-weight-bold mt-4">@item.Nome</h4>
+                                <h6 class="blue-text font-weight-bold my-3">@item.Profissao</h6>
+                                <p class="font-weight-normal">@item.Texto</p>
+                                <h6 class="blue-text font-weight-bold my-3">@item.Data.ToShortDateString()</h6>
+                                @if(@item.Aprovado == "True"){
+                                    <h6 class="blue-text font-weight-bold my-3">Aprovado</h6>
+                                }
+                                @if(@item.Aprovado == "False"){
+                                    <h6 class="blue-text font-weight-bold my-3">Pendente</h6>
+                                }
+                                @if(@item.Aprovado == "Excluido"){
+                                    <h6 class="blue-text font-weight-bold my-3">Excluido</h6>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <section class="text-center">
+        <h2 class="titulo2">Usuarios: @ViewBag.Users</h2>
+        <div class="row">
+            <div class="carousel-inner" role="listbox">
+                @foreach (var item in @Model.Usuarios)
+                {
+                     <div class="carousel-item active">
+                        <div class="col-md-4">
+                            <div class="usuarios">
+                                <h4 class="font-weight-bold mt-4">@item.Nome</h4>
+                                <h6 class="blue-text font-weight-bold my-3">@item.Sobrenome</h6>
+                                <p class="font-weight-normal">Email: @item.Email</p>
+                                <p class="font-weight-normal">Senha: @item.Senha</p>
+                                <h6 class="blue-text font-weight-bold my-3">@item.DataNascimento.ToShortDateString()</h6>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}
+</main>
